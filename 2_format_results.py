@@ -11,8 +11,8 @@ df = pd.read_excel(file)
 split_courses = (
     df["Required_Course"].astype(str).str.split(r"\s*-\s*", n=1, expand=True)
 )
-df["Class_Number"] = split_courses[0]
-df["Class_Name"] = split_courses[1]
+df["Course_Number"] = split_courses[0]
+df["Course_Name"] = split_courses[1]
 
 # 4. Handle N/A, missing (NaN), or non-formatted values
 invalid_mask = (
@@ -26,7 +26,7 @@ invalid_mask = (
 )
 
 
-df.loc[invalid_mask, ["Class_Number", "Class_Name"]] = np.nan
+df.loc[invalid_mask, ["Course_Number", "Course_Name"]] = np.nan
 
 df.to_excel("qc_majors_core_courses.xlsx", index=False)
 
