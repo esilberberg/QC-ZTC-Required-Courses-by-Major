@@ -125,7 +125,6 @@ try:
     # Convert extracted list of dicts to pandas DataFrame
     df = pd.DataFrame(spreadsheet_rows)
     
-    # Save directly to Excel format
     df.to_excel(filename, index=False)
 
     print(f"\nSuccessfully exported {len(spreadsheet_rows)} course rows to '{filename}'!")
